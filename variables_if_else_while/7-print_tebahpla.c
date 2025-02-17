@@ -5,16 +5,16 @@
   *
   * Return: Always (Success)
   */
+
 int main(void)
+
 {
-	char n;
+char r;
+for (r = 'z'; r >= 'a'; r--)
+{
+putchar(r);
+}
+putchar('\n');
 
-	for (n = '0'; n <= '9'; n++)
-	{
-		putchar(n);
-	}
-
-	putchar('\n');
-
-	return (0);
+return (0);
 }
