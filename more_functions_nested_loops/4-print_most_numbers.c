@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * function that prints the numbers, from 0 to 9
- *
- * Return: void.
- */
+*print_most_numbers - prints
+* owned by Bwave ICT
+*Return: void
+*/
 
 void print_most_numbers(void)
 {
