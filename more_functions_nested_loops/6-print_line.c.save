@@ -1,0 +1,15 @@
+#include "main.h"
+
+/**
+* print_line - prints straight line in the terminal
+*@n: number of times the character '_' will be printed
+*return: void
+*/
+
+void print_line(int n)
+{
+int l , d;
+
+for
+
+}
