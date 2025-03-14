@@ -1,34 +1,16 @@
-#include <stdlib.h>
 #include "main.h"
+#include <stdlib.h>
 /**
- * alloc_grid - creates 2D array of ints
- * @width: width of 2D array
- * @height: height of 2D array
- * Return: pointer to 2D array or NULL if failure
+ * free_grid - function that concatenates two strings
+ * @grid: parmater for grid
+ * @height: parameter for height
+ * Return: Always 0.
  */
-int **alloc_grid(int width, int height)
+void free_grid(int **grid, int height)
 {
-	int **arr;
-	int i, j;
+	int i;
 
-	if (width < 1 || height < 1)
-		return (NULL);
-	arr = malloc(sizeof(int *) * height);
-	if (arr == NULL)
-		return (NULL);
 	for (i = 0; i < height; i++)
-	{
-		arr[i] = malloc(sizeof(int) * width);
-		if (arr[i] == NULL)
-		{
-			for (--i; i >= 0; i--)
-				free(arr[i]);
-			free(arr);
-			return (NULL);
-		}
-	}
-	for (i = 0; i < height; i++)
-		for (j = 0; j < width; j++)
-			arr[i][j] = 0;
-	return (arr);
+		free(grid[i]);
+	free(grid);
 }
