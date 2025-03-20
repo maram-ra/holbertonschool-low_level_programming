@@ -1,7 +1,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include "variadic_functions.h"
-
+#include <stdarg.h>
 /**
  * print_all - prints anything based on format string
  * @format: list of argument types (c:char, i:int, f:float, s:string)
