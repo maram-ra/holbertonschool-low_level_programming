@@ -9,11 +9,11 @@
 int safe_close(int fd);
 
 /**
- * main - Copies the content of one file to another
- * @argc: Argument count
- * @argv: Argument vector
+ * main - Copies the content of one file to another.
+ * @argc: Argument count.
+ * @argv: Argument vector (file_from and file_to).
  *
- * Return: 0 on success, exits with error codes on failure
+ * Return: 0 on success, exits with various codes on failure.
  */
 int main(int argc, char *argv[])
 {
@@ -76,17 +76,10 @@ int main(int argc, char *argv[])
 }
 
 /**
- * safe_close - Closes a file descriptor and checks for errors
- * @fd: File descriptor to close
+ * safe_close - Closes a file descriptor and checks for failure.
+ * @fd: File descriptor to close.
  *
- * Return: 0 on success, -1 on failure
- */
-
-/**
- * safe_close - Closes a file descriptor and checks for errors
- * @fd: File descriptor to close
- *
- * Return: 0 on success, -1 on failure
+ * Return: 0 on success, -1 on failure.
  */
 int safe_close(int fd)
 {
