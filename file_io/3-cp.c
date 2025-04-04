@@ -10,10 +10,10 @@ int safe_close(int fd);
 
 /**
  * main - Copies the content of one file to another
- * @argc: Number of arguments
- * @argv: Array of argument strings
+ * @argc: Argument count
+ * @argv: Argument vector
  *
- * Return: 0 on success, exits with codes on failure
+ * Return: 0 on success, exits with error codes on failure
  */
 int main(int argc, char *argv[])
 {
@@ -53,6 +53,7 @@ int main(int argc, char *argv[])
 		}
 	}
 
+	/* ✅ التعديل هنا */
 	if (bytes_read == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
@@ -76,7 +77,7 @@ int main(int argc, char *argv[])
 }
 
 /**
- * safe_close - Closes a file descriptor and prints an error if it fails
+ * safe_close - Closes a file descriptor and checks for errors
  * @fd: File descriptor to close
  *
  * Return: 0 on success, -1 on failure
