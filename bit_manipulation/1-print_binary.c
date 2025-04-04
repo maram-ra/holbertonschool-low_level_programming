@@ -1,31 +1,20 @@
+#include <string.h>
+#include <math.h>
 #include "main.h"
 /**
- *  print_binary - function
- *  @n:number to convert
- *
- *  Description: Function to print binary conv of number given
- *  Return: converted number
- */
+ * print_binary - prints the binary representation of a number
+ * @n: number to be converted
+ * Return: void
+*/
 void print_binary(unsigned long int n)
 {
-	unsigned long int i = 0;
-
-	if (n == 0)
-		_putchar(n + '0');
-
-	while (n > 0)
-	{
-		if ((n & 1) == 0)
-		{
-			i += (i + 0);
-			n = n >> 1;
-			_putchar('0');
-		}
-		else
-		{
-			i += (i + 1);
-			n = n >> 1;
-			_putchar('1');
-		}
-	}
+	/*
+	 * if number is greater than 1, print the binary representation of
+	 * the number divided by 2 (n >> 1)
+	 * n >> 1 is equivalent to n / 2
+	 */
+	if (n > 1)
+		print_binary(n >> 1);
+	/* print the last digit of the number in binary format */
+	_putchar((n & 1) + '0');
 }
