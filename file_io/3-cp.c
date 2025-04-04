@@ -41,25 +41,24 @@ int main(int argc, char *argv[])
 		exit(99);
 	}
 
-	while ((bytes_read = read(from_fd, buffer, 1024)) > 0)
+	while ((bytes_read = read(from_fd, buffer, 1024)) != 0)
 	{
+		if (bytes_read == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+			safe_close(from_fd);
+			safe_close(to_fd);
+			exit(98);
+		}
+
 		bytes_written = write(to_fd, buffer, bytes_read);
-		if (bytes_written != bytes_read)
+		if (bytes_written == -1 || bytes_written != bytes_read)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			safe_close(from_fd);
 			safe_close(to_fd);
 			exit(99);
 		}
-	}
-
-	/* ✅ التعديل هنا */
-	if (bytes_read == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-		safe_close(from_fd);
-		safe_close(to_fd);
-		exit(98);
 	}
 
 	close_status = safe_close(to_fd);
@@ -77,17 +76,4 @@ int main(int argc, char *argv[])
 }
 
 /**
- * safe_close - Closes a file descriptor and checks for errors
- * @fd: File descriptor to close
- *
- * Return: 0 on success, -1 on failure
- */
-int safe_close(int fd)
-{
-	if (close(fd) == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
-		return (-1);
-	}
-	return (0);
-}
+ * safe_close -_*
