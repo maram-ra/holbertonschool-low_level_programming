@@ -76,4 +76,24 @@ int main(int argc, char *argv[])
 }
 
 /**
- * safe_close -_*
+ * safe_close - Closes a file descriptor and checks for errors
+ * @fd: File descriptor to close
+ *
+ * Return: 0 on success, -1 on failure
+ */
+
+/**
+ * safe_close - Closes a file descriptor and checks for errors
+ * @fd: File descriptor to close
+ *
+ * Return: 0 on success, -1 on failure
+ */
+int safe_close(int fd)
+{
+	if (close(fd) == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
+		return (-1);
+	}
+	return (0);
+}
